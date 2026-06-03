@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReLinkr Scan Test Page</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .test-section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+        .label { font-weight: bold; color: #555; }
+        .green { color: green; }
+        .red { color: red; }
+    </style>
+</head>
+<body>
+
+    <h1>ReLinkr Testing Ground</h1>
+    <p>This page contains intentional link errors to test the ReLinkr crawler.</p>
+
+    <div class="test-section">
+        <span class="label">Status: <span class="green">SHOULD PASS</span></span>
+        <p>This is a healthy link to <a href="https://www.google.com">Google</a>. ReLinkr should ignore this.</p>
+    </div>
+
+    <div class="test-section">
+        <span class="label">Status: <span class="red">SHOULD FAIL (404)</span></span>
+        <p>This link goes to a <a href="https://www.amazon.com/this-page-does-not-exist-12345">Broken Amazon Product</a>. ReLinkr should catch this and suggest an affiliate replacement.</p>
+    </div>
+
+    <div class="test-section">
+        <span class="label">Status: <span class="red">SHOULD FAIL (DNS)</span></span>
+        <p>This link goes to a domain that doesn't exist: <a href="https://www.definitely-not-a-real-website-xyz.com">Fake Website</a>.</p>
+    </div>
+
+    <div class="test-section">
+        <span class="label">Status: <span class="red">TECH TIER TEST</span></span>
+        <p>A broken developer link: <a href="https://github.com/relinkr/broken-repo-path">Broken GitHub Repo</a>. This should trigger your $0.20 Advanced repair tier.</p>
+    </div>
+
+    <footer>
+        <p>Test Page for ReLinkr Deployment Verification</p>
+    </footer>
+
+</body>
+</html>
